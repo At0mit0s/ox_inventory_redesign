@@ -133,7 +133,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .inventory-control {
   position: absolute;
-  bottom: 14%;
+  bottom: 12%;
   left: 51.5%;
 
   display: flex;
@@ -308,10 +308,46 @@ input[type='number']::-webkit-outer-spin-button {
 .inventory-grid-header-wrapper {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   justify-content: space-between;
+  margin-bottom: 2vh;
   p {
     font-size: 16px;
   }
+}
+
+.playerLabel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1vw;
+  color: var(--primary-color);
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 2.4vh;
+  width: 4vh;
+  height: 4vh;
+  color: var(--primary-color);
+}
+.icon::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4vh;
+  height: 4vh;
+  background: radial-gradient(circle, rgba(60,60,60,0.3), rgba(10,10,10, 0.3));
+  border: 1.5px solid var(--primary-color);
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 24px var(--primary-color);
+  transform: rotate(45deg);
+  opacity: 0.7;
 }
 
 .inventory-grid-container {
@@ -402,7 +438,7 @@ input[type='number']::-webkit-outer-spin-button {
   text-shadow: 0px 0px 7px black;
   height: 12px;
   font-weight: 500;
-  padding: 4px;
+  padding: 5px 7px;
   font-size: 12px;
   font-family: $mainFont;
 }
@@ -414,10 +450,9 @@ input[type='number']::-webkit-outer-spin-button {
   width: 100%;
   height: 100%;
   background: var(--primary-color);
-  border: 1px solid var(--primary-color);
   border-top-left-radius: 0.25vh;
   border-bottom-right-radius: 0.25vh;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .item-slot-wrapper {

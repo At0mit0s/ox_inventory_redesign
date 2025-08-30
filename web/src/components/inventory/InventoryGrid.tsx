@@ -8,6 +8,30 @@ import { useIntersection } from '../../hooks/useIntersection';
 
 const PAGE_SIZE = 30;
 
+import { GiHighGrass } from "react-icons/gi";
+import { BsBoxFill } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
+import { GiStoneCrafting } from "react-icons/gi";
+import { FaFingerprint } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
+import { FaCar } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
+import { FaHand } from "react-icons/fa6";
+
+const ICONS = {
+  'newdrop': <GiHighGrass />,
+  'drop': <GiHighGrass />,
+  'stash': <BsBoxFill />,
+  'container': <BsBoxFill />,
+  'policeevidence': <FaFingerprint />,
+  'crafting': <GiStoneCrafting />,
+  'shop': <FaCartShopping />,
+  'inspect': <FaSearch />,
+  'glovebox': <FaCar />,
+  'otherplayer': <FaUserAlt />,
+  'player': <FaHand />,
+}
+
 const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
   const weight = useMemo(
     () => (inventory.maxWeight !== undefined ? Math.floor(getTotalWeight(inventory.items) * 1000) / 1000 : 0),
@@ -28,10 +52,13 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
       <div className="inventory-grid-wrapper" style={{ pointerEvents: isBusy ? 'none' : 'auto' }}>
         <div>
           <div className="inventory-grid-header-wrapper">
-            <p>{inventory.label}</p>
+            <div className='playerLabel'>
+              <div className='icon'>{ICONS[inventory.type as keyof typeof ICONS]}</div>
+              <div>{inventory.label}</div>
+            </div>
             {inventory.maxWeight && (
               <p>
-                {weight / 1000}/ <span className='weightSpawn'>{inventory.maxWeight / 1000}kg</span>
+                {weight / 1000} / <span className='weightSpawn'>{inventory.maxWeight / 1000}kg</span>
               </p>
             )}
           </div>
