@@ -26,7 +26,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
       {!itemData ? (
         <div className="tooltip-wrapper" ref={ref} style={style}>
           <div className="tooltip-header-wrapper">
-            <p>{item.name}</p>
+            <p className='tooltipItemName'>{item.name}</p>
           </div>
           <Divider />
         </div>

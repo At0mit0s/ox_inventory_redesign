@@ -96,9 +96,16 @@ const App: React.FC = () => {
     items: typeof Items;
     leftInventory: Inventory;
     imagepath: string;
-  }>('init', ({ locale, items, leftInventory, imagepath }) => {
+    primaryColor: string;
+    secondaryColor: string;
+  }>('init', ({ locale, items, leftInventory, imagepath, primaryColor, secondaryColor }) => {
     for (const name in locale) Locale[name] = locale[name];
     for (const name in items) Items[name] = items[name];
+
+    if (primaryColor !== undefined && secondaryColor !== undefined){
+      document.documentElement.style.setProperty('--primary', primaryColor);
+      document.documentElement.style.setProperty('--secondary', secondaryColor);
+    }
 
     setImagePath(imagepath);
     dispatch(setupInventory({ leftInventory }));

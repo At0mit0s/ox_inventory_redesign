@@ -15,7 +15,10 @@ dependencies {
     'ox_lib',
 }
 
-shared_script '@ox_lib/init.lua'
+shared_scripts {
+    '@ox_lib/init.lua',
+    'config.lua'
+}
 
 ox_libs {
     'locale',

@@ -35,12 +35,11 @@ const WeightBar: React.FC<{ percent: number; durability?: boolean }> = ({ percen
 
   return (
     <div className={durability ? 'durability-bar' : 'weight-bar'}>
-      <div
+      <div className='linearBar'
         style={{
           visibility: percent > 0 ? 'visible' : 'hidden',
           height: '100%',
           width: `${percent}%`,
-          backgroundColor: color,
           transition: `background ${0.3}s ease, width ${0.3}s ease`,
         }}
       ></div>

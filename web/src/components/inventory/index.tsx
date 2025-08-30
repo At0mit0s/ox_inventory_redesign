@@ -13,6 +13,7 @@ import { closeTooltip } from '../../store/tooltip';
 import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
+import Logo from '../../../images/logo.png'
 
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -43,6 +44,13 @@ const Inventory: React.FC = () => {
   return (
     <>
       <Fade in={inventoryVisible}>
+        <div className='overlay'></div>
+        <div className='logo'><img src={Logo} alt="Inventory" /></div>
+        <div className='leftShadow'></div>
+        <div className='rightShadow'></div>
+        <div className='topShadow'></div>
+        <div className='divider'></div>
+
         <div className="inventory-wrapper">
           <LeftInventory />
           <InventoryControl />
