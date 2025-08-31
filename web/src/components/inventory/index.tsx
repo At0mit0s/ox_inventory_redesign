@@ -15,8 +15,13 @@ import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
 import Logo from '../../../images/logo.png'
 
+import { useAppSelector } from '../../store';
+import { selectRightInventory } from '../../store/inventory';
+
+
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
+  const rightInventory = useAppSelector(selectRightInventory);
   const dispatch = useAppDispatch();
 
   useNuiEvent<boolean>('setInventoryVisible', setInventoryVisible);
@@ -49,12 +54,16 @@ const Inventory: React.FC = () => {
         <div className='leftShadow'></div>
         <div className='rightShadow'></div>
         <div className='topShadow'></div>
-        <div className='divider'></div>
+        {rightInventory.type !== 'player' &&
+          <div className='divider'></div>
+        }
 
         <div className="inventory-wrapper">
           <LeftInventory />
           <InventoryControl />
-          <RightInventory />
+          {rightInventory.type !== 'player' &&
+            <RightInventory />
+          }
           <Tooltip />
           <InventoryContext />
         </div>

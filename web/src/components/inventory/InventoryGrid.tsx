@@ -8,28 +8,30 @@ import { useIntersection } from '../../hooks/useIntersection';
 
 const PAGE_SIZE = 30;
 
-import { GiHighGrass } from "react-icons/gi";
-import { BsBoxFill } from "react-icons/bs";
-import { FaSearch } from "react-icons/fa";
-import { GiStoneCrafting } from "react-icons/gi";
-import { FaFingerprint } from "react-icons/fa";
-import { FaCartShopping } from "react-icons/fa6";
-import { FaCar } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
-import { FaHand } from "react-icons/fa6";
+import { 
+  DropIcon,
+  BoxIcon,
+  FingerPrintIcon,
+  CraftIcon,
+  CarIcon,
+  ShopIcon,
+  SearchIcon,
+  UserIcon,
+  HandIcon
+} from '../icons/Icons'
 
 const ICONS = {
-  'newdrop': <GiHighGrass />,
-  'drop': <GiHighGrass />,
-  'stash': <BsBoxFill />,
-  'container': <BsBoxFill />,
-  'policeevidence': <FaFingerprint />,
-  'crafting': <GiStoneCrafting />,
-  'shop': <FaCartShopping />,
-  'inspect': <FaSearch />,
-  'glovebox': <FaCar />,
-  'otherplayer': <FaUserAlt />,
-  'player': <FaHand />,
+  'newdrop': DropIcon,
+  'drop': DropIcon,
+  'stash': BoxIcon,
+  'container': BoxIcon,
+  'policeevidence': FingerPrintIcon,
+  'crafting': CraftIcon,
+  'shop': ShopIcon,
+  'inspect': SearchIcon,
+  'glovebox': CarIcon,
+  'otherplayer': UserIcon,
+  'player': HandIcon,
 }
 
 const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
@@ -53,7 +55,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
         <div>
           <div className="inventory-grid-header-wrapper">
             <div className='playerLabel'>
-              <div className='icon'>{ICONS[inventory.type as keyof typeof ICONS]}</div>
+              <div className='icon'>{ICONS[inventory.type as keyof typeof ICONS]()}</div>
               <div>{inventory.label}</div>
             </div>
             {inventory.maxWeight && (
