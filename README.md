@@ -1,6 +1,10 @@
 # FivemLand ox_inventory redesign
 This is only a redesign and not our inventory system! 
 
+## New features
+- Added theme.lua (you can change the primary and secondary color)
+- Logo Watermark (you can add your logo.png to the images)
+
 ## Official creator
 You can find the official repo here: <https://github.com/overextended/ox_inventory>
 
