@@ -1,4 +1,5 @@
 # FivemLand ox_inventory redesign
+This is only a redesign and not our inventory system! 
 
 ## Official creator
 You can find the official repo here: <https://github.com/overextended/ox_inventory>
