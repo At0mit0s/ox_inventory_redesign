@@ -11,6 +11,7 @@ import DragPreview from './components/utils/DragPreview';
 import { fetchNui } from './utils/fetchNui';
 import { useDragDropManager } from 'react-dnd';
 import KeyPress from './components/utils/KeyPress';
+import { useEffect } from 'react';
 
 debugData([
   {
@@ -101,10 +102,10 @@ const App: React.FC = () => {
   }>('init', ({ locale, items, leftInventory, imagepath, primaryColor, secondaryColor }) => {
     for (const name in locale) Locale[name] = locale[name];
     for (const name in items) Items[name] = items[name];
-
+    
     if (primaryColor !== undefined && secondaryColor !== undefined){
-      document.documentElement.style.setProperty('--primary', primaryColor);
-      document.documentElement.style.setProperty('--secondary', secondaryColor);
+      document.getElementById('root')?.style.setProperty('--primary-color', primaryColor);
+      document.getElementById('root')?.style.setProperty('--secondary-color', secondaryColor);
     }
 
     setImagePath(imagepath);
