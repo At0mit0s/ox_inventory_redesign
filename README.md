@@ -1,6 +1,8 @@
 # FivemLand ox_inventory redesign
 This is only a redesign and not our inventory system! 
 
+<img width="1920" height="1080" alt="kép" src="https://github.com/user-attachments/assets/fb19aebd-489b-4fb6-ad83-1d81ecf84049" />
+
 ## New features
 - Added theme.lua (you can change the primary and secondary color)
 - Logo Watermark (you can add your logo.png to the images)
