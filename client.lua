@@ -1329,8 +1329,8 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 				maxWeight = shared.playerweight,
 			},
 			imagepath = client.imagepath,
-			primaryColor = Config.primaryColor,
-			secondaryColor = Config.secondaryColor,
+			primaryColor = Theme.primaryColor,
+			secondaryColor = Theme.secondaryColor,
 		}
 	})
 

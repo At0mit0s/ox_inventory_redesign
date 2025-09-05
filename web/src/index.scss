@@ -73,6 +73,26 @@ input[type='number']::-webkit-outer-spin-button {
   z-index: 100000 !important;
 }
 
+.context-menu-item:nth-child(even){
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 0px;
+  background-image: 
+    linear-gradient(to right, transparent, rgba(255, 255, 255, 0.24), transparent),
+    linear-gradient(to right, transparent, rgba(255, 255, 255, 0.24), transparent);
+  background-position: top, bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.context-menu-item:nth-last-child(1):nth-child(even) {
+  background-image: 
+    linear-gradient(to right, transparent, rgba(255, 255, 255, 0.24), transparent);
+  background-position: top;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
 .context-menu-item  {
   padding: 8px;
   border-radius: 4px;
@@ -253,6 +273,7 @@ input[type='number']::-webkit-outer-spin-button {
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.12);
+  margin-bottom: 5px;
 }
 
 .useful-controls-button {
@@ -343,6 +364,7 @@ input[type='number']::-webkit-outer-spin-button {
 .icon svg path{
   fill: var(--primary-color);
 }
+
 .icon::before{
   content: '';
   position: absolute;
@@ -397,6 +419,7 @@ input[type='number']::-webkit-outer-spin-button {
   background-size: 7vh;
   color: $textColor;
 }
+
 .inventory-slot::before{
   content: '';
   position: absolute;
@@ -588,7 +611,7 @@ input[type='number']::-webkit-outer-spin-button {
 .hotbar-container {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 0.7vh;
   justify-content: center;
   width: 100%;
   position: absolute;
@@ -596,10 +619,39 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .hotbar-item-slot {
+  position: relative;
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
 }
+
+.hotbar-item-slot::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: radial-gradient(circle, rgba(40, 40, 40, 0.4), rgba(10, 10, 10, 0.4));
+  height: 100%;
+  border: 2px solid rgba(255,255,255,0.24);
+  border-radius: 3px;
+  z-index: -1 !important;
+}
+
+.hotbar-item-slot:has(.item-slot-wrapper)::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: radial-gradient(circle, rgba(40, 40, 40, 0.4), rgba(10, 10, 10, 0.4)) !important;
+  height: 100%;
+  z-index: -1 !important;
+  border: 2px solid var(--primary-color) !important;
+  box-shadow: inset 0px 0px 24px var(--primary-color) !important;
+  opacity: 0.6;
+}
+
 
 .hotbar-slot-header-wrapper {
   display: flex;
@@ -648,6 +700,8 @@ input[type='number']::-webkit-outer-spin-button {
   background: rgba(0, 0, 0, 0.5);
   height: 3px;  
   overflow: hidden;
+  width: 96.5%;
+  margin: 0px 5px;
 }
 
 .weight-bar {
@@ -760,7 +814,7 @@ input[type='number']::-webkit-outer-spin-button {
   filter: blur(100px);
   opacity: 0.3;
 }
-.divider{
+.InventoryDivider{
   position: absolute;
   top: 50%;
   left: 50%;
