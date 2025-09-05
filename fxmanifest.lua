@@ -17,7 +17,7 @@ dependencies {
 
 shared_scripts {
     '@ox_lib/init.lua',
-    'config.lua'
+    'theme.lua'
 }
 
 ox_libs {
